@@ -66,7 +66,7 @@ export const newsData = [
       </div>
     `,
     image:
-      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=400&fit=crop",
+      "/images/warehouse/semarang/wh-semarang-1-1.png",
     date: "2025-01-08",
     category: "Company News",
     author: "Tim Redaksi PT. MISP",
