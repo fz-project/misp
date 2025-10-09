@@ -1,7 +1,20 @@
 export const warehouseInfo = {
   locations: [
     {
-      type: "Head Office & Warehouse",
+      type: "Head Office",
+      city: "SURABAYA",
+      address: "Jl. Wonosari Lor No.147A Wonokusumo, Kec.Semampir Surabaya",
+      mapsUrl: "https://maps.app.goo.gl/qoxXNbvb4btEa5k87",
+      // contactPerson: "Machriz",
+      // phone: "+62 87747744999",
+      images: [
+        "/images/warehouse/surabaya-1/wh-sby-1-2.png",
+      ],
+      length: 65,
+      width: 19,
+    },
+    {
+      type: "Warehouse",
       city: "SURABAYA",
       address: "Jl. Wonosari Lor No.147A Wonokusumo, Kec.Semampir Surabaya",
       mapsUrl: "https://maps.app.goo.gl/qoxXNbvb4btEa5k87",
@@ -43,7 +56,21 @@ export const warehouseInfo = {
       width: 50,
     },
     {
-      type: "Branch Office & Warehouse",
+      type: "Branch Office",
+      city: "JAKARTA",
+      address:
+        "Jalan Pabrik Kulit No.1, RT. 5/RW.4, Bar (depan TK, sebelah nasi padang uda denai) Cakung, kota Jakarta timur, DKI JAKARTA, ID 13950",
+      mapsUrl: "https://maps.app.goo.gl/YAhJLts5MMKuYRbf6?g_st=aw",
+      // contactPerson: "Zaenal",
+      // phone: "+62 817112257",
+      images: [
+        "/images/warehouse/jakarta-1/wh-jakarta-1-2.png",
+      ],
+      length: 30,
+      width: 25,
+    },
+    {
+      type: "Warehouse",
       city: "JAKARTA",
       address:
         "Jalan Komarudin Timur, Gang Bhakti No. T270, RW.6, Pulo Gebang, Kec. Cakung, Kota Jakarta Timur, DKI Jakarta 13910",
@@ -51,8 +78,7 @@ export const warehouseInfo = {
       // contactPerson: "Zaenal",
       // phone: "+62 817112257",
       images: [
-        "/images/warehouse/jakarta-1/wh-jakarta-1-1.png",
-        "/images/warehouse/jakarta-1/wh-jakarta-1-2.png",
+        "/images/warehouse/jakarta-2/wh-jakarta-branch-1.png",
       ],
       length: 30,
       width: 25,
