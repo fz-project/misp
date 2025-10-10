@@ -42,11 +42,11 @@ const AllNews = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-40">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between mb-6">
+          {/* <div className="flex items-center justify-between mb-6">
             <Link
               href="/"
               className="flex items-center text-gray-600 hover:text-red-600 transition-colors duration-300"
@@ -54,14 +54,14 @@ const AllNews = () => {
               <ArrowLeft size={20} className="mr-2" />
               Kembali ke Home
             </Link>
-          </div>
+          </div> */}
 
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-5xl font-bold text-gray-900 mb-4">
               Semua <span className="text-red-600">Berita</span>
             </h1>
             <p className="text-lg text-gray-600">
-              Ikuti semua perkembangan dan pencapaian PT. MISP
+              Ikuti semua perkembangan informasi terbaru PT. Mikro Indo Sinergi Persada
             </p>
           </div>
         </div>

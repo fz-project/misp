@@ -1,17 +1,33 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { CheckCircle, Award, Users, Target } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
 const About = () => {
-
   const data = COMPANY_INFO;
+
+  // Variants reusable untuk animasi bertahap
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, delay, ease: "easeOut" },
+    }),
+  };
 
   return (
     <section id="about" className="py-20 bg-gray-50 scroll-mt-24">
       <div className="container mx-auto px-4 xl:px-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             About <span className="text-red-600">{data.shortName}</span>
           </h2>
@@ -19,20 +35,27 @@ const About = () => {
             From humble beginnings to becoming a trusted leader in
             telecommunications engineering and industrial solutions
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           {/* Company Story */}
-          <div className="space-y-8">
-            <div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ staggerChildren: 0.2 }}
+            className="space-y-8"
+          >
+            <motion.div variants={fadeUp}>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Our Journey
               </h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                {data.name} began its journey as UD. Sumber Rejeki in
-                2006, focusing on scrap and non-scrapping materials. Through
-                strategic evolution and expansion, we transformed into CV.
-                Maulidiya in 2012, venturing into telecommunications services.
+                {data.name} began its journey as UD. Sumber Rejeki in 2006,
+                focusing on scrap and non-scrapping materials. Through strategic
+                evolution and expansion, we transformed into CV. Maulidiya in
+                2012, venturing into telecommunications services.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 In 2016, we achieved a significant milestone by becoming a
@@ -40,13 +63,21 @@ const About = () => {
                 ourselves as a professional telecommunications engineering and
                 industrial scrapping management provider.
               </p>
-            </div>
+            </motion.div>
 
             {/* Timeline */}
-            <div className="space-y-4">
+            <motion.div variants={fadeUp} className="space-y-4">
               {data.previousNames.map((item, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.2 + 0.3,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true, amount: 0.2 }}
                   className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm"
                 >
                   <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
@@ -70,21 +101,35 @@ const About = () => {
                       </p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Certifications & Achievements */}
-          <div className="space-y-8">
-            <div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="space-y-8"
+          >
+            <motion.div variants={fadeUp}>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 ISO Certifications
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.certifications.map((cert, index) => (
-                  <div
+                  <motion.div
                     key={index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.3 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true, amount: 0.3 }}
                     className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
                     <div className="flex items-center space-x-3 mb-3">
@@ -92,12 +137,19 @@ const About = () => {
                       <h4 className="font-bold text-gray-900">{cert.name}</h4>
                     </div>
                     <p className="text-sm text-gray-600">{cert.type}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="p-6 bg-red-600 text-white rounded-xl">
+            {/* Why Choose Us */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="p-6 bg-red-600 text-white rounded-xl shadow-md"
+            >
               <h4 className="text-xl font-bold mb-3">Why Choose Us?</h4>
               <ul className="space-y-2">
                 <li className="flex items-center space-x-2">
@@ -117,14 +169,26 @@ const About = () => {
                   <span>Professional & Environmentally Friendly</span>
                 </li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Vision & Mission */}
-        <div className="grid lg:grid-cols-2 gap-12">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid lg:grid-cols-2 gap-12"
+        >
           {/* Vision */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-white p-8 rounded-2xl shadow-lg"
+          >
             <div className="flex items-center space-x-3 mb-6">
               <Target className="text-red-600" size={32} />
               <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
@@ -132,27 +196,44 @@ const About = () => {
             <p className="text-gray-600 leading-relaxed text-lg">
               {data.vision}
             </p>
-          </div>
+          </motion.div>
 
           {/* Mission */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="bg-white p-8 rounded-2xl shadow-lg"
+          >
             <div className="flex items-center space-x-3 mb-6">
               <Users className="text-red-600" size={32} />
               <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
             </div>
             <ul className="space-y-3">
               {data.mission.map((item, index) => (
-                <li key={index} className="flex items-start space-x-3">
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1 + 0.2,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="flex items-start space-x-3"
+                >
                   <CheckCircle
                     className="text-green-500 mt-1 flex-shrink-0"
                     size={20}
                   />
                   <span className="text-gray-600">{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

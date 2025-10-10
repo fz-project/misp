@@ -1,12 +1,19 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Globe, Award } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
+/**
+ * 🔹 Footer Section with subtle scroll-based animations
+ * - Each column fades up sequentially
+ * - Contact icons animate softly on hover
+ * - Smooth scroll to section links
+ */
 const Footer = () => {
   const data = COMPANY_INFO;
 
-  /** 🔹 Fungsi untuk scroll smooth ke section tertentu */
+  /** 🔹 Smooth scroll helper */
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
     const el = document.querySelector(targetId);
@@ -15,18 +22,45 @@ const Footer = () => {
     }
   };
 
+  /** ✨ Motion variants for columns */
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
-    <div className="bg-gray-900 text-white scroll-smooth">
+    <footer className="bg-gray-900 text-white scroll-smooth">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16 xl:px-10">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <motion.div
+        className="container mx-auto px-4 py-16 xl:px-10"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.div
+          className="grid lg:grid-cols-4 gap-8"
+          variants={container}
+        >
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <motion.div variants={item}>
             <div className="flex items-center space-x-3 mb-6">
-              <img
+              <motion.img
                 src={data.logo}
                 alt={data.name}
                 className="h-12 w-12 object-contain"
+                whileHover={{ scale: 1.05, rotate: 3 }}
+                transition={{ type: "spring", stiffness: 300 }}
               />
               <div>
                 <h3 className="text-xl font-bold">{data.shortName}</h3>
@@ -41,24 +75,26 @@ const Footer = () => {
             {/* Certifications */}
             <div>
               <h4 className="font-semibold mb-3 flex items-center">
-                <Award className="mr-2" size={18} />
+                <Award className="mr-2 text-yellow-400" size={18} />
                 ISO Certified
               </h4>
               <div className="flex flex-wrap gap-2">
                 {data.certifications.map((cert, index) => (
-                  <span
+                  <motion.span
                     key={index}
+                    variants={item}
                     className="px-2 py-1 bg-red-600 text-white text-xs rounded"
+                    whileHover={{ scale: 1.1 }}
                   >
                     {cert.name}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={item}>
             <h4 className="text-lg font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               {[
@@ -69,7 +105,11 @@ const Footer = () => {
                 "Scrap Management",
                 "Warehousing Solutions",
               ].map((service, i) => (
-                <li key={i}>
+                <motion.li
+                  key={i}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <a
                     href="#services"
                     onClick={(e) => handleSmoothScroll(e, "#services")}
@@ -77,13 +117,13 @@ const Footer = () => {
                   >
                     {service}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={item}>
             <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {[
@@ -93,7 +133,7 @@ const Footer = () => {
                 { name: "Locations", href: "#locations" },
                 { name: "Contact", href: "#contact" },
               ].map((link, i) => (
-                <li key={i}>
+                <motion.li key={i} whileHover={{ x: 4 }}>
                   <a
                     href={link.href}
                     onClick={(e) => handleSmoothScroll(e, link.href)}
@@ -101,28 +141,36 @@ const Footer = () => {
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
               <li>
                 <span className="text-gray-400">Careers</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
+          <motion.div variants={item}>
             <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3">
+              <motion.div
+                className="flex items-start space-x-3"
+                whileHover={{ x: 4 }}
+              >
                 <MapPin className="text-red-400 mt-1 flex-shrink-0" size={18} />
-                <div>
-                  <a href={data.locations[0].mapsUrl} target="_blank" className="text-gray-400 text-sm leading-relaxed">
-                    {data.locations[0].address}
-                  </a>
-                </div>
-              </div>
+                <a
+                  href={data.locations[0].mapsUrl}
+                  target="_blank"
+                  className="text-gray-400 text-sm leading-relaxed"
+                >
+                  {data.locations[0].address}
+                </a>
+              </motion.div>
 
-              <div className="flex items-center space-x-3">
+              <motion.div
+                className="flex items-center space-x-3"
+                whileHover={{ x: 4 }}
+              >
                 <Phone className="text-red-400 flex-shrink-0" size={18} />
                 <a
                   href={`tel:${data.locations[0].phone}`}
@@ -130,9 +178,12 @@ const Footer = () => {
                 >
                   {data.locations[0].phone}
                 </a>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-3">
+              <motion.div
+                className="flex items-center space-x-3"
+                whileHover={{ x: 4 }}
+              >
                 <Mail className="text-red-400 flex-shrink-0" size={18} />
                 <a
                   href="mailto:mispcenter@misp.co.id"
@@ -140,49 +191,63 @@ const Footer = () => {
                 >
                   mispcenter@misp.co.id
                 </a>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center space-x-3">
+              <motion.div
+                className="flex items-center space-x-3"
+                whileHover={{ x: 4 }}
+              >
                 <Globe className="text-red-400 flex-shrink-0" size={18} />
                 <span className="text-gray-400">www.misp.co.id</span>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-gray-800">
+      <motion.div
+        className="border-t border-gray-800"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         <div className="container mx-auto px-4 py-6 xl:px-10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
               © {new Date().getFullYear()} {data.name}. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <span className="text-gray-400">Privacy Policy</span>
-              <span className="text-gray-400">Terms of Service</span>
-              <span className="text-gray-400">Cookie Policy</span>
+              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+                (item, i) => (
+                  <motion.span
+                    key={i}
+                    whileHover={{ scale: 1.1, color: "#fff" }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 cursor-pointer"
+                  >
+                    {item}
+                  </motion.span>
+                )
+              )}
             </div>
           </div>
 
-          {/* Legal Information */}
-          <div className="mt-4 pt-4 border-t border-gray-800">
-            <div className="grid md:grid-cols-2 gap-4 text-xs text-gray-500">
-              <div>
-                <p>
-                  Company Registration: {data.legalInfo.companyRegistration}
-                </p>
-                <p>NPWP: {data.legalInfo.npwp}</p>
-              </div>
-              <div>
-                <p>Trade License: {data.legalInfo.tradeLicense}</p>
-                <p>Minister Decree: {data.legalInfo.ministerDecree}</p>
-              </div>
-            </div>
+          {/* Legal Info */}
+          <div className="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-500 grid md:grid-cols-2 gap-4">
+            <p>
+              Company Registration: {data.legalInfo.companyRegistration} <br />
+              NPWP: {data.legalInfo.npwp}
+            </p>
+            <p>
+              Trade License: {data.legalInfo.tradeLicense} <br />
+              Minister Decree: {data.legalInfo.ministerDecree}
+            </p>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </footer>
   );
 };
 

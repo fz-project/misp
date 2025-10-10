@@ -100,7 +100,7 @@ export const warehouseInfo = {
         "Ps. Hewan Mranggen, Dekat, Bandung, Bandungrejo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567",
       mapsUrl: 
         "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
-      images: ["/images/warehouse/semarang/wh-semarang-1-1.png","/images/warehouse/semarang/wh-semarang-1-2.png"],
+      images: ["/images/warehouse/semarang/wh-semarang-1-1.JPG","/images/warehouse/semarang/wh-semarang-1-2.JPG","/images/warehouse/semarang/wh-semarang-1-3.JPG","/images/warehouse/semarang/wh-semarang-1-4.JPG"],
       length: 41,
       width: 18,
     },

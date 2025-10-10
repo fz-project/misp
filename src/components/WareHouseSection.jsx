@@ -2,140 +2,205 @@
 
 import React, { useId, useEffect, useState, useCallback } from "react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
-import { Building, MapPin, User, Phone, Ruler, ChevronRight, ChevronLeft, X } from "lucide-react";
+import {
+  Building,
+  MapPin,
+  User,
+  Phone,
+  Ruler,
+  ChevronRight,
+  ChevronLeft,
+  X,
+} from "lucide-react";
 import { warehouseInfo } from "@/data/warehouse";
 import Image from "next/image";
 import Link from "next/link";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 
 export default function WarehouseSection() {
+  /** ✨ Variants animasi fade-up per card */
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+    >
       {warehouseInfo.locations.map((location, index) => (
-        <WarehouseCard key={index} location={location} delayIndex={index} />
+        <motion.div key={index} variants={fadeUp}>
+          <WarehouseCard location={location} delayIndex={index} />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
 
-const WarehouseCard = React.memo(function WarehouseCard({
-  location,
-  delayIndex,
-}) {
+/* 🏢 CARD UTAMA */
+const WarehouseCard = React.memo(function WarehouseCard({ location, delayIndex }) {
   const [isHovered, setIsHovered] = useState(false);
   const area =
-    location.length && location.width
-      ? location.length * location.width
-      : null;
+    location.length && location.width ? location.length * location.width : null;
 
   return (
-    <Card
-      className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <motion.div
+      whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
+      whileTap={{ scale: 0.98 }}
     >
-      <CardHeader className="pb-4">
-        <div className="flex items-center justify-between mb-4 gap-2">
-          <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300 flex items-center gap-4">
-            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
-              <Building
-                className="text-red-600 group-hover:text-white transition-colors duration-300"
-                size={24}
-              />
-            </div>
-            <h1>{location.city}</h1>
-          </CardTitle>
+      <Card
+        className="group hover:shadow-2xl transition-all duration-500 bg-white border-0 shadow-lg overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <CardHeader className="pb-4">
+          <div className="flex items-center justify-between mb-4 gap-2">
+            <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300 flex items-center gap-4">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                <Building
+                  className="text-red-600 group-hover:text-white transition-colors duration-300"
+                  size={24}
+                />
+              </div>
+              <h1>{location.city}</h1>
+            </CardTitle>
 
-          <span
-            className={`px-3 py-1 rounded-full text-xs font-medium ${
-              location.type.includes("Head")
-                ? "bg-red-100 text-red-700"
-                : location.type.includes("Branch")
-                ? "bg-yellow-100 text-yellow-700"
-                : "bg-blue-100 text-blue-700"
-            }`}
-          >
-            {location.type}
-          </span>
-        </div>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
-        {location.images?.length > 0 && (
-          <AutoScrollCarousel
-            key={useId()}
-            images={location.images}
-            delayIndex={delayIndex}
-            paused={isHovered}
-          />
-        )}
-
-        {/* Alamat */}
-        <div className="flex items-start space-x-3">
-          <MapPin className="text-red-600 mt-1 flex-shrink-0" size={18} />
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {location.address}
-          </p>
-        </div>
-
-        {/* Dimensi */}
-        {(location.length || location.width) && (
-          <div className="flex items-start space-x-3">
-            <Ruler className="text-red-600 mt-1 flex-shrink-0" size={18} />
-            <div className="text-gray-700 text-sm leading-relaxed">
-              <p>
-                <span className="font-medium">Length:</span>{" "}
-                {location.length ? `${location.length} m` : "-"}
-              </p>
-              <p>
-                <span className="font-medium">Width:</span>{" "}
-                {location.width ? `${location.width} m` : "-"}
-              </p>
-              {area && (
-                <p>
-                  <span className="font-medium">Area:</span> {area} m²
-                </p>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Kontak */}
-        {location.contactPerson && (
-          <div className="flex items-center space-x-3">
-            <User className="text-red-600 flex-shrink-0" size={18} />
-            <span className="text-gray-700 font-medium">
-              {location.contactPerson}
+            <span
+              className={`px-3 py-1 rounded-full text-xs font-medium ${
+                location.type.includes("Head")
+                  ? "bg-red-100 text-red-700"
+                  : location.type.includes("Branch")
+                  ? "bg-yellow-100 text-yellow-700"
+                  : "bg-blue-100 text-blue-700"
+              }`}
+            >
+              {location.type}
             </span>
           </div>
-        )}
+        </CardHeader>
 
-        {/* Telepon */}
-        {location.phone && (
-          <div className="flex items-center space-x-3">
-            <Phone className="text-red-600 flex-shrink-0" size={18} />
-            <a
-              href={`tel:${location.phone}`}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-300"
-            >
-              {location.phone}
-            </a>
-          </div>
-        )}
+        <CardContent className="space-y-4">
+          {location.images?.length > 0 && (
+            <AutoScrollCarousel
+              key={useId()}
+              images={location.images}
+              delayIndex={delayIndex}
+              paused={isHovered}
+            />
+          )}
 
-        {location.mapsUrl && (
-          <Link
-            href={location.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full mt-4 bg-red-50 hover:bg-red-600 text-red-600 hover:text-white py-2 px-4 rounded-lg text-center transition-all duration-300 transform hover:scale-105 font-medium flex items-center justify-center gap-2 text-sm"
+          {/* Alamat */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-start space-x-3"
           >
-            <MapPin />
-            <span>Show in Maps</span>
-          </Link>
-        )}
-      </CardContent>
-    </Card>
+            <MapPin className="text-red-600 mt-1 flex-shrink-0" size={18} />
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {location.address}
+            </p>
+          </motion.div>
+
+          {/* Dimensi */}
+          {(location.length || location.width) && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex items-start space-x-3"
+            >
+              <Ruler className="text-red-600 mt-1 flex-shrink-0" size={18} />
+              <div className="text-gray-700 text-sm leading-relaxed">
+                <p>
+                  <span className="font-medium">Length:</span>{" "}
+                  {location.length ? `${location.length} m` : "-"}
+                </p>
+                <p>
+                  <span className="font-medium">Width:</span>{" "}
+                  {location.width ? `${location.width} m` : "-"}
+                </p>
+                {area && (
+                  <p>
+                    <span className="font-medium">Area:</span> {area} m²
+                  </p>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Kontak */}
+          {location.contactPerson && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center space-x-3"
+            >
+              <User className="text-red-600 flex-shrink-0" size={18} />
+              <span className="text-gray-700 font-medium">
+                {location.contactPerson}
+              </span>
+            </motion.div>
+          )}
+
+          {/* Telepon */}
+          {location.phone && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex items-center space-x-3"
+            >
+              <Phone className="text-red-600 flex-shrink-0" size={18} />
+              <a
+                href={`tel:${location.phone}`}
+                className="text-gray-700 hover:text-red-600 transition-colors duration-300"
+              >
+                {location.phone}
+              </a>
+            </motion.div>
+          )}
+
+          {location.mapsUrl && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Link
+                href={location.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full mt-4 bg-red-50 hover:bg-red-600 text-red-600 hover:text-white py-2 px-4 rounded-lg text-center transition-all duration-300 transform hover:scale-105 font-medium flex items-center justify-center gap-2 text-sm"
+              >
+                <MapPin />
+                <span>Show in Maps</span>
+              </Link>
+            </motion.div>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 });
 

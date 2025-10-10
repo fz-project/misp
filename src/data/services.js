@@ -72,7 +72,7 @@ export const serviceInfo = {
           ],
         },
         {
-          title: "Mini CME – Power and TE Installation",
+          title: "Mini CME - Power and TE Installation",
           description:
             "Instalasi mini CME untuk sistem power dan telecommunication equipment.",
           images: [

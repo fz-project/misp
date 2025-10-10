@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { COMPANY_INFO } from "../data/company";
 import Image from "next/image";
 
 const Hero = () => {
-
   const dataCompany = COMPANY_INFO;
-  
+
   return (
     <section
       id="home"
@@ -24,9 +24,19 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
               <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium">
                 <CheckCircle size={16} className="mr-2" />
                 Established Since 2016
@@ -46,25 +56,42 @@ const Hero = () => {
                 industrial scrap management services across Indonesia. Trusted
                 by major telecom operators.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* STATS SECTION */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+            >
               {dataCompany.stats.map((stat, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.6 + index * 0.1,
+                    ease: "easeOut",
+                  }}
                   className="text-center p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="text-2xl lg:text-3xl font-bold text-red-600">
                     {stat.value}
                   </div>
                   <div className="text-sm text-gray-600 mt-1">{stat.label}</div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA BUTTONS */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Button
                 size="lg"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
@@ -89,11 +116,16 @@ const Hero = () => {
               >
                 Contact Us
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Visual Element */}
-          <div className="hidden lg:block relative">
+          {/* RIGHT VISUAL */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, x: 60 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+            className="hidden lg:block relative"
+          >
             <div className="relative z-10">
               <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="space-y-6">
@@ -149,7 +181,7 @@ const Hero = () => {
             {/* Background decorations */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-80"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-red-600 rounded-full opacity-20"></div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
