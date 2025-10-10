@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle, Award, Users, Target } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
@@ -7,7 +8,7 @@ import { COMPANY_INFO } from "@/data/company";
 const About = () => {
   const data = COMPANY_INFO;
 
-  // Variants reusable untuk animasi bertahap
+  // Animasi reusable
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (delay = 0) => ({
@@ -18,9 +19,22 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-50 scroll-mt-24">
-      <div className="container mx-auto px-4 xl:px-10">
-        {/* Section Header */}
+    <section
+      id="about"
+      className="relative py-20 bg-gray-50 scroll-mt-24 overflow-hidden"
+    >
+      {/* 🏗️ Background Tower */}
+      <Image
+        src={"/images/tower.png"}
+        alt="Telecommunication Tower"
+        width={700}
+        height={900}
+        className="absolute top-32 right-30 lg:right-0 w-full h-full opacity-10 mix-blend-multiply pointer-events-none select-none translate-x-24 -translate-y-10 block object-cover lg:object-contain"
+        priority
+      />
+
+      <div className="container mx-auto px-4 xl:px-10 relative z-10">
+        {/* Header Section */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -37,8 +51,9 @@ const About = () => {
           </p>
         </motion.div>
 
+        {/* Isi Utama */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-          {/* Company Story */}
+          {/* Kiri: Journey */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -106,7 +121,7 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Certifications & Achievements */}
+          {/* Kanan: Certifications & Why Choose Us */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -142,7 +157,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* Why Choose Us */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
