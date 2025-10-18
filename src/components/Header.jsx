@@ -81,19 +81,19 @@ const Header = () => {
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center space-x-6">
                 {/* <div > */}
-                  <Link href="tel:+6282123112257" className="flex items-center space-x-2">
+                  <Link href="tel:+6282123112257" className="text-xs lg:text-sm flex items-center space-x-2">
                     <Phone size={14} />
                     <span>+62 821-2311-2257</span>
                   </Link>
                 {/* </div> */}
                 {/* <div className=""> */}
-                  <Link href="mailto:mispcenter@misp.co.id" className="flex items-center space-x-2">
+                  <Link href="mailto:mispcenter@misp.co.id" className="text-xs lg:text-sm flex items-center space-x-2">
                     <Mail size={14} />
                     <span>mispcenter@misp.co.id</span>
                   </Link>
                 {/* </div> */}
               </div>
-              <div className="hidden md:block">
+              <div className="text-xs lg:text-sm hidden md:block">
                 <span>
                   Professional Telecommunications Engineering Services
                 </span>

@@ -8,7 +8,9 @@ export const warehouseInfo = {
       // contactPerson: "Machriz",
       // phone: "+62 87747744999",
       images: [
-        "/images/warehouse/surabaya-1/wh-sby-1-2.png",
+        "/images/office/surabaya/sby-office-2.jpeg",
+        "/images/office/surabaya/sby-office-1.jpeg",
+        "/images/office/surabaya/sby-office-3.jpeg"
       ],
       length: 65,
       width: 19,
@@ -21,8 +23,8 @@ export const warehouseInfo = {
       // contactPerson: "Machriz",
       // phone: "+62 87747744999",
       images: [
-        "/images/warehouse/surabaya-1/wh-sby-1-1.png",
-        "/images/warehouse/surabaya-1/wh-sby-1-2.png",
+        "/images/warehouse/surabaya/wh-sby-1-1.jpeg",
+        "/images/warehouse/surabaya/wh-sby-1-2.jpeg",
       ],
       length: 65,
       width: 19,
@@ -64,7 +66,11 @@ export const warehouseInfo = {
       // contactPerson: "Zaenal",
       // phone: "+62 817112257",
       images: [
-        "/images/warehouse/jakarta-1/wh-jakarta-1-2.png",
+        "/images/office/jakarta/jkt-office-1.jpeg",
+        "/images/office/jakarta/jkt-office-2.jpeg",
+        "/images/office/jakarta/jkt-office-3.jpeg",
+        "/images/office/jakarta/jkt-office-4.jpeg",
+        "/images/office/jakarta/jkt-office-5.jpeg"
       ],
       length: 30,
       width: 25,

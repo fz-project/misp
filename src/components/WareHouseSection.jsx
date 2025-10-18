@@ -57,7 +57,10 @@ export default function WarehouseSection() {
 }
 
 /* 🏢 CARD UTAMA */
-const WarehouseCard = React.memo(function WarehouseCard({ location, delayIndex }) {
+const WarehouseCard = React.memo(function WarehouseCard({
+  location,
+  delayIndex,
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const area =
     location.length && location.width ? location.length * location.width : null;
@@ -214,27 +217,32 @@ const AutoScrollCarousel = React.memo(function AutoScrollCarousel({
   const [fade, setFade] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  useEffect(() => {
-    if (images.length <= 1 || paused) return;
+  /**
+   * 📴 Auto-scroll dinonaktifkan
+   * Kode lama di bawah ini dikomentari agar bisa diaktifkan lagi nanti.
+   */
+  // useEffect(() => {
+  //   if (images.length <= 1 || paused) return;
 
-    const initialDelay = 2000 * delayIndex;
-    let intervalId;
-    const startCarousel = () => {
-      intervalId = setInterval(() => {
-        setFade(false);
-        setTimeout(() => {
-          setCurrentIndex((prev) => (prev + 1) % images.length);
-          setFade(true);
-        }, 400);
-      }, 5000);
-    };
-    const startTimer = setTimeout(startCarousel, initialDelay);
-    return () => {
-      clearTimeout(startTimer);
-      clearInterval(intervalId);
-    };
-  }, [images.length, delayIndex, paused]);
+  //   const initialDelay = 2000 * delayIndex;
+  //   let intervalId;
+  //   const startCarousel = () => {
+  //     intervalId = setInterval(() => {
+  //       setFade(false);
+  //       setTimeout(() => {
+  //         setCurrentIndex((prev) => (prev + 1) % images.length);
+  //         setFade(true);
+  //       }, 400);
+  //     }, 5000);
+  //   };
+  //   const startTimer = setTimeout(startCarousel, initialDelay);
+  //   return () => {
+  //     clearTimeout(startTimer);
+  //     clearInterval(intervalId);
+  //   };
+  // }, [images.length, delayIndex, paused]);
 
+  /** 🔧 Manual control via button or dot */
   const goToSlide = (index) => {
     setFade(false);
     setTimeout(() => {
@@ -318,7 +326,6 @@ const AutoScrollCarousel = React.memo(function AutoScrollCarousel({
   );
 });
 
-
 const ImageLightbox = ({ images, startIndex, onClose }) => {
   const [index, setIndex] = useState(startIndex);
 
@@ -396,5 +403,3 @@ const ImageLightbox = ({ images, startIndex, onClose }) => {
     document.body
   );
 };
-
-
