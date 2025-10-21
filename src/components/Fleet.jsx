@@ -15,7 +15,7 @@ const Fleet = () => {
     "Warehouse Equipment": Gauge,
   };
 
-  /** Variants untuk animasi masuk */
+  /** Animation variants for fade-up effect */
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (i = 1) => ({
@@ -41,11 +41,11 @@ const Fleet = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Armada & <span className="text-red-600">Kendaraan</span>
+            Fleet & <span className="text-red-600">Vehicles</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Kendaraan dan peralatan terdepan untuk mendukung operasional
-            telekomunikasi dan logistik di seluruh Indonesia
+            Advanced vehicles and equipment supporting telecommunication and
+            logistics operations across Indonesia
           </p>
         </motion.div>
 
@@ -57,9 +57,9 @@ const Fleet = () => {
           viewport={{ once: true }}
         >
           {[
-            { label: "Total Kendaraan", value: fleetStats.totalVehicles },
-            { label: "Kategori", value: fleetStats.categories },
-            { label: "Rata-rata Umur", value: fleetStats.averageAge },
+            { label: "Total Vehicles", value: fleetStats.totalVehicles },
+            { label: "Categories", value: fleetStats.categories },
+            { label: "Average Age", value: fleetStats.averageAge },
             { label: "Uptime", value: fleetStats.maintenance },
           ].map((stat, i) => (
             <motion.div
@@ -91,7 +91,7 @@ const Fleet = () => {
                 custom={index}
                 variants={fadeUp}
                 onClick={() => setActiveCategory(index)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 ${
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 cursor-pointer ${
                   activeCategory === index
                     ? "bg-red-600 text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 shadow-md"
@@ -121,7 +121,7 @@ const Fleet = () => {
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {vehicle.quantity} Unit
+                    {vehicle.quantity} Units
                   </div>
                   <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg">
                     <span className="text-sm font-medium text-gray-900">
@@ -154,7 +154,7 @@ const Fleet = () => {
 
                   <div className="space-y-2">
                     <h4 className="font-semibold text-gray-900 mb-2">
-                      Spesifikasi:
+                      Specifications:
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       {vehicle.specifications.map((spec, specIndex) => (

@@ -15,7 +15,8 @@ export default function Home() {
       <Services />
       <Fleet />
       <Locations />
-      <News />
+      {/* Di Nonaktifkan dlu */}
+      {/* <News />  */}
       <Contact />
       <Footer />
     </>
