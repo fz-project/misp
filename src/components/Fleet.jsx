@@ -88,13 +88,11 @@ const Fleet = () => {
                   <img
                     src={vehicle.image}
                     alt={vehicle.name}
-                    className="w-full h-48 sm:h-56 md:h-64 lg:h-64 object-contain bg-gray-100 group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  {/* Badge jumlah */}
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-red-600 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                     {vehicle.quantity} Units
                   </div>
-                  {/* Badge kapasitas */}
                   <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-white/90 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-lg">
                     <span className="text-xs sm:text-sm font-medium text-gray-900">
                       {vehicle.capacity}
@@ -102,7 +100,7 @@ const Fleet = () => {
                   </div>
                 </div>
 
-                {/* Info kendaraan */}
+                {/* Info */}
                 <CardHeader className="p-4 sm:p-5 md:p-6">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0 mb-2 sm:mb-3">
                     <CardTitle className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300 leading-tight">
@@ -125,7 +123,6 @@ const Fleet = () => {
                   <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">
                     {vehicle.description}
                   </p>
-
                   <div className="space-y-2">
                     <h4 className="font-semibold text-sm sm:text-base text-gray-900 mb-2">
                       Specifications:
@@ -149,7 +146,7 @@ const Fleet = () => {
         </motion.div>
       </div>
 
-      {/* Modal Gambar */}
+      {/* Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black/70 flex justify-center items-center z-50"
