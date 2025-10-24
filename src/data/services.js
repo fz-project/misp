@@ -1,5 +1,3 @@
-
-
 export const serviceInfo = {
   services: {
     telcoEngineering: {
@@ -9,11 +7,18 @@ export const serviceInfo = {
       items: [
         {
           title: "Project Rollout",
-          description: "Implementasi project rollout telekomunikasi skala besar.",
+          description:
+            "Implementasi project rollout telekomunikasi skala besar.",
           images: [
-            "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=400&fit=crop",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-            "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&h=400&fit=crop",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/telco1.jpeg",
+            "/images/service/telco/telco2.jpeg",
+            "/images/service/telco/telco3.jpeg",
+            "/images/service/telco/telco4.jpeg",
+            "/images/service/telco/telco5.jpeg",
+            "/images/service/telco/telco6.jpeg",
+            "/images/service/telco/telco7.jpeg",
+            ,
           ],
         },
         {
@@ -81,7 +86,8 @@ export const serviceInfo = {
         },
         {
           title: "Microwave (New Link) Installation",
-          description: "Instalasi link microwave baru untuk komunikasi backbone.",
+          description:
+            "Instalasi link microwave baru untuk komunikasi backbone.",
           images: [
             "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
           ],
@@ -114,8 +120,13 @@ export const serviceInfo = {
           description:
             "Layanan pengiriman scrap material dari lokasi proyek ke warehouse atau fasilitas pengolahan.",
           images: [
-            "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
-            "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=400&fit=crop",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/team.jpeg",
           ],
         },
         {
@@ -213,7 +224,7 @@ export const serviceInfo = {
 //             "/images/scrap2.jpg",
 //             "/images/scrap3.jpg",
 //           ],
-//         }, 
+//         },
 //         {
 //           title: "Industrial Waste Processing",
 //           description: "Processing and disposal of industrial waste.",

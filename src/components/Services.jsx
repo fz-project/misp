@@ -134,33 +134,33 @@ const Services = () => {
           })}
         </motion.div>
 
-        {/* Detailed Services */}
+        {/* Telco Engineering */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-12"
+          className="grid lg:grid-cols-2 gap-12 items-center mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
         >
-          {/* Telco Engineering */}
-          <div className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg">
+          {/* Left Text */}
+          <div>
             <div className="flex items-center space-x-3 mb-6">
               <Network className="text-red-600" size={32} />
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-3xl font-bold text-gray-900">
                 {serviceInfo.services.telcoEngineering.title}
               </h3>
             </div>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-3 mb-8">
               {serviceInfo.services.telcoEngineering.items.map(
                 (service, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUp}
                     whileHover={{ scale: 1.02 }}
-                    onClick={() =>
-                      openModal(serviceInfo.services.telcoEngineering, index)
-                    }
-                    className="flex items-center space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
+                    // onClick={() =>
+                    //   openModal(serviceInfo.services.telcoEngineering, index)
+                    // }
+                    className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300 cursor-pointer"
                   >
                     <CheckCircle
                       className="text-green-500 flex-shrink-0"
@@ -173,25 +173,87 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Scrap & Warehousing */}
-          <div className="bg-gradient-to-br from-red-50 to-white p-8 rounded-2xl shadow-lg">
+          {/* Right Gallery */}
+          <div className="grid grid-cols-2 gap-4">
+            {serviceInfo.services.telcoEngineering.items
+              .find((item) => item.title === "Project Rollout") // cari item Rollout
+              ?.images.map((img, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative h-56 rounded-xl overflow-hidden cursor-pointer shadow-lg"
+                >
+                  <Image
+                    src={img}
+                    alt={`Project Rollout ${i + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold px-3 text-center">
+                      Project Rollout
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+          </div>
+        </motion.div>
+
+        {/* Scrap & Warehousing */}
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+        >
+          {/* Left Gallery */}
+          <div className="order-2 lg:order-1 grid grid-cols-2 gap-4">
+            {serviceInfo.services.scrapWarehousing.items
+              .find((item) => item.title === "Scrap Delivery Services")
+              ?.images.map((img, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative h-56 rounded-xl overflow-hidden cursor-pointer shadow-lg"
+                  // onClick={() =>
+                  //   openModal(serviceInfo.services.scrapWarehousing, i)
+                  // }
+                >
+                  <Image
+                    src={img}
+                    alt={`Scrap Delivery Services ${i + 1}`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold px-3 text-center">
+                      Scrap Delivery Services
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+          </div>
+
+          {/* Right Text */}
+          <div className="order-1 lg:order-2">
             <div className="flex items-center space-x-3 mb-6">
               <Warehouse className="text-red-600" size={32} />
-              <h3 className="text-2xl font-bold text-gray-900">
+              <h3 className="text-3xl font-bold text-gray-900">
                 {serviceInfo.services.scrapWarehousing.title}
               </h3>
             </div>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-3 mb-8">
               {serviceInfo.services.scrapWarehousing.items.map(
                 (service, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUp}
                     whileHover={{ scale: 1.02 }}
-                    onClick={() =>
-                      openModal(serviceInfo.services.scrapWarehousing, index)
-                    }
-                    className="flex items-center space-x-3 p-3 bg-white rounded-lg hover:shadow-md transition-shadow duration-300 cursor-pointer"
+                    // onClick={() =>
+                    //   openModal(serviceInfo.services.scrapWarehousing, index)
+                    // }
+                    className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300 cursor-pointer"
                   >
                     <CheckCircle
                       className="text-green-500 flex-shrink-0"
@@ -205,15 +267,15 @@ const Services = () => {
           </div>
         </motion.div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-20 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
         >
-          <div className="bg-red-600 text-white p-8 rounded-2xl shadow-xl">
+          <div className="bg-red-600 text-white p-10 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Start Your Project?
             </h3>
@@ -235,7 +297,7 @@ const Services = () => {
         </motion.div>
       </div>
 
-      {/* Modal */}
+      {/* Modal & Lightbox */}
       <ServiceModal
         parentService={selectedParent}
         service={selectedItem}
@@ -247,7 +309,6 @@ const Services = () => {
         }}
       />
 
-      {/* Lightbox */}
       {selectedProject && lightboxIndex !== null && (
         <motion.div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-[60]"
@@ -261,30 +322,25 @@ const Services = () => {
           >
             <X size={32} />
           </button>
-
           <button
             onClick={prevImage}
             className="absolute left-6 text-white hover:text-gray-300"
           >
             <ChevronLeft size={40} />
           </button>
-
           <motion.div
             key={lightboxIndex}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="relative max-w-5xl w-full flex justify-center"
+            className="relative w-full max-w-5xl h-[70vh]"
           >
             <Image
               src={selectedProject.images[lightboxIndex]}
-              alt={`lightbox-${lightboxIndex}`}
-              className="rounded-lg shadow-lg max-h-[90vh] object-contain"
-              width={1200}
-              height={800}
+              alt={`Project Image ${lightboxIndex + 1}`}
+              fill
+              className="object-contain"
             />
           </motion.div>
-
           <button
             onClick={nextImage}
             className="absolute right-6 text-white hover:text-gray-300"
