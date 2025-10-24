@@ -136,7 +136,7 @@ const Services = () => {
 
         {/* Telco Engineering */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-12 items-center mb-24"
+          className="grid lg:grid-cols-2 gap-12 mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -144,11 +144,14 @@ const Services = () => {
         >
           {/* Left Text */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-6 relative gap-2">
               <Network className="text-red-600" size={32} />
-              <h3 className="text-3xl font-bold text-gray-900">
-                {serviceInfo.services.telcoEngineering.title}
+              <h3 className="text-3xl font-bold text-black ">
+                  
+                  {serviceInfo.services.telcoEngineering.title}
+
               </h3>
+              <div className="absolute -bottom-2 lg:-bottom-3 left-0 right-0 h-1 bg-yellow-300 rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 gap-3 mb-8">
               {serviceInfo.services.telcoEngineering.items.map(
@@ -160,7 +163,7 @@ const Services = () => {
                     // onClick={() =>
                     //   openModal(serviceInfo.services.telcoEngineering, index)
                     // }
-                    className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300 cursor-pointer"
+                    className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300"
                   >
                     <CheckCircle
                       className="text-green-500 flex-shrink-0"
@@ -201,7 +204,7 @@ const Services = () => {
 
         {/* Scrap & Warehousing */}
         <motion.div
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -237,11 +240,12 @@ const Services = () => {
 
           {/* Right Text */}
           <div className="order-1 lg:order-2">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-6 relative">
               <Warehouse className="text-red-600" size={32} />
-              <h3 className="text-3xl font-bold text-gray-900">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                 {serviceInfo.services.scrapWarehousing.title}
               </h3>
+              <div className="absolute -bottom-2 lg:-bottom-3 left-0 right-0 h-1 bg-yellow-300 rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 gap-3 mb-8">
               {serviceInfo.services.scrapWarehousing.items.map(
