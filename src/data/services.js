@@ -18,7 +18,6 @@ export const serviceInfo = {
             "/images/service/telco/telco5.jpeg",
             "/images/service/telco/telco6.jpeg",
             "/images/service/telco/telco7.jpeg",
-            ,
           ],
         },
         {
