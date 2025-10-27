@@ -119,13 +119,12 @@ export const serviceInfo = {
           description:
             "Layanan pengiriman scrap material dari lokasi proyek ke warehouse atau fasilitas pengolahan.",
           images: [
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/team.jpeg",
+            "/images/service/scrap/p1.jpeg",
+            "/images/service/scrap/wh1.jpeg",
+            "/images/service/scrap/p2.jpeg",
+            "/images/service/scrap/wh2.jpeg",
+            "/images/service/scrap/p3.jpeg",
+            "/images/service/scrap/wh3.jpeg",
           ],
         },
         {

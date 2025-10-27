@@ -147,9 +147,7 @@ const Services = () => {
             <div className="flex items-center space-x-3 mb-6 relative gap-2">
               <Network className="text-red-600" size={32} />
               <h3 className="text-3xl font-bold text-black ">
-                  
-                  {serviceInfo.services.telcoEngineering.title}
-
+                {serviceInfo.services.telcoEngineering.title}
               </h3>
               <div className="absolute -bottom-2 lg:-bottom-3 left-0 right-0 h-1 bg-yellow-300 rounded-full"></div>
             </div>
@@ -192,11 +190,6 @@ const Services = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold px-3 text-center">
-                      Project Rollout
-                    </span>
-                  </div>
                 </motion.div>
               ))}
           </div>
@@ -229,11 +222,6 @@ const Services = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold px-3 text-center">
-                      Scrap Delivery Services
-                    </span>
-                  </div>
                 </motion.div>
               ))}
           </div>

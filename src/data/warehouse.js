@@ -8,9 +8,10 @@ export const warehouseInfo = {
       // contactPerson: "Machriz",
       // phone: "+62 87747744999",
       images: [
-        "/images/office/surabaya/sby-office-2.jpeg",
-        "/images/office/surabaya/sby-office-1.jpeg",
-        "/images/office/surabaya/sby-office-3.jpeg"
+        "/images/office/surabaya/sby-office.jpg",
+        "/images/office/surabaya/sby-office-2.jpg",
+        "/images/office/surabaya/sby-office-3.jpeg",
+        "/images/office/surabaya/sby-office-4.jpg",
       ],
       length: 65,
       width: 19,
@@ -24,7 +25,7 @@ export const warehouseInfo = {
       // phone: "+62 87747744999",
       images: [
         "/images/warehouse/surabaya/wh-sby-1-1.jpeg",
-        "/images/warehouse/surabaya/wh-sby-1-2.jpeg",
+        "/images/warehouse/surabaya/wh-sby-1.jpg",
       ],
       length: 65,
       width: 19,
@@ -32,13 +33,14 @@ export const warehouseInfo = {
     {
       type: "Warehouse",
       city: "SURABAYA",
-      address: "Jl.  Wonosari Lor No.92, Wonokusumo, Kec. Semampir, Surabaya, Jawa Timur 60154",
+      address:
+        "Jl.  Wonosari Lor No.92, Wonokusumo, Kec. Semampir, Surabaya, Jawa Timur 60154",
       mapsUrl: "https://maps.app.goo.gl/AR6Kz2TLQdjG2AFX8",
       // contactPerson: "Machriz",
       // phone: "+62 87747744999",
       images: [
-        "/images/warehouse/surabaya-2/wh-sby-2-1.png",
-        "/images/warehouse/surabaya-2/wh-sby-2-2.png",
+        "/images/warehouse/surabaya-2/wh-sby22.jpg",
+        "/images/warehouse/surabaya-2/wh-sby21.jpg",
       ],
       length: 18,
       width: 16,
@@ -46,13 +48,16 @@ export const warehouseInfo = {
     {
       type: "Warehouse",
       city: "SURABAYA",
-      address: "Jl. Tenggumung Wetan No.128, Wonokusumo, Kec. Semampir, Surabaya, Jawa Timur 60154",
+      address:
+        "Jl. Tenggumung Wetan No.128, Wonokusumo, Kec. Semampir, Surabaya, Jawa Timur 60154",
       mapsUrl: "https://maps.app.goo.gl/6cuzt6Yuy3xDnfGc6",
       // contactPerson: "Machriz",
       // phone: "+62 87747744999",
       images: [
-        "/images/warehouse/surabaya-3/wh-sby-3-1.png",
-        "/images/warehouse/surabaya-3/wh-sby-3-2.png",
+        "/images/warehouse/surabaya-3/sby-3-1.jpg",
+        "/images/warehouse/surabaya-3/sby-3-2.jpg",
+        "/images/warehouse/surabaya-3/sby-3-3.jpeg",
+        "/images/warehouse/surabaya-3/sby-3-4.jpeg",
       ],
       length: 56,
       width: 50,
@@ -70,7 +75,7 @@ export const warehouseInfo = {
         "/images/office/jakarta/jkt-office-2.jpeg",
         "/images/office/jakarta/jkt-office-3.jpeg",
         "/images/office/jakarta/jkt-office-4.jpeg",
-        "/images/office/jakarta/jkt-office-5.jpeg"
+        "/images/office/jakarta/jkt-office-5.jpeg",
       ],
       length: 30,
       width: 25,
@@ -83,19 +88,20 @@ export const warehouseInfo = {
       mapsUrl: "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
       // contactPerson: "Zaenal",
       // phone: "+62 817112257",
-      images: [
-        "/images/warehouse/jakarta-2/wh-jakarta-branch-1.png",
-      ],
+      images: ["/images/warehouse/jakarta-2/wh-jakarta-branch-1.png"],
       length: 30,
       width: 25,
     },
     {
       type: "Warehouse",
       city: "BANDUNG",
-      address: "Jl. Ciodeng Barat, No. 08, Rt.02/RW.07, Kel. Bojongmalaka Kec. Baleendah, Kab. Bandung, Jawa Barat 40375",
-      mapsUrl: 
-        "https://maps.app.goo.gl/sci8RAt6SnyXZz277",
-      images: ["/images/warehouse/bandung/wh-bandung-1-1.png","/images/warehouse/bandung/wh-bandung-1-2.png"],
+      address:
+        "Jl. Ciodeng Barat, No. 08, Rt.02/RW.07, Kel. Bojongmalaka Kec. Baleendah, Kab. Bandung, Jawa Barat 40375",
+      mapsUrl: "https://maps.app.goo.gl/sci8RAt6SnyXZz277",
+      images: [
+        "/images/warehouse/bandung/wh-bandung-1-1.png",
+        "/images/warehouse/bandung/wh-bandung-1-2.png",
+      ],
       length: 20,
       width: 11,
     },
@@ -104,28 +110,39 @@ export const warehouseInfo = {
       city: "SEMARANG",
       address:
         "Ps. Hewan Mranggen, Dekat, Bandung, Bandungrejo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567",
-      mapsUrl: 
-        "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
-      images: ["/images/warehouse/semarang/wh-semarang-1-1.JPG","/images/warehouse/semarang/wh-semarang-1-2.JPG","/images/warehouse/semarang/wh-semarang-1-3.JPG","/images/warehouse/semarang/wh-semarang-1-4.JPG"],
+      mapsUrl: "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
+      images: [
+        "/images/warehouse/semarang/wh-semarang-1-1.JPG",
+        "/images/warehouse/semarang/wh-semarang-1-2.JPG",
+        "/images/warehouse/semarang/wh-semarang-1-3.JPG",
+        "/images/warehouse/semarang/wh-semarang-1-4.JPG",
+      ],
       length: 41,
       width: 18,
     },
     {
       type: "Warehouse",
       city: "BALI",
-      address: "Jl. Padang Kartika VI No.4, Padangsambian Klod, Kec. Denpasar Bar., Kabupaten Badung, Bali 80117",
-      mapsUrl: 
-        "https://maps.app.goo.gl/9eT6rDMjzY2M5vqA8",
-      images: ["/images/warehouse/bali/wh-bali-1-1.png","/images/warehouse/bali/wh-bali-1-2.png"],
+      address:
+        "Jl. Padang Kartika VI No.4, Padangsambian Klod, Kec. Denpasar Bar., Kabupaten Badung, Bali 80117",
+      mapsUrl: "https://maps.app.goo.gl/9eT6rDMjzY2M5vqA8",
+      images: [
+        "/images/warehouse/bali/wh-bali-1-1.png",
+        "/images/warehouse/bali/wh-bali-1-2.png",
+      ],
       length: 65,
       width: 19,
     },
     {
       type: "Warehouse",
       city: "MATARAM",
-      address: "Jl Raya Sandik, Meninting Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351",
+      address:
+        "Jl Raya Sandik, Meninting Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351",
       mapsUrl: "https://maps.app.goo.gl/bLvq9Qq16cHXSioT7",
-      images: ["/images/warehouse/mataram/wh-mataram-1-1.png","/images/warehouse/mataram/wh-mataram-1-2.png"],
+      images: [
+        "/images/warehouse/mataram/wh-mataram-1-1.png",
+        "/images/warehouse/mataram/wh-mataram-1-2.png",
+      ],
       length: 65,
       width: 19,
     },
