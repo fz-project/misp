@@ -10,7 +10,6 @@ export const warehouseInfo = {
       images: [
         "/images/office/surabaya/sby-office.jpg",
         "/images/office/surabaya/sby-office-2.jpg",
-        "/images/office/surabaya/sby-office-3.jpeg",
         "/images/office/surabaya/sby-office-4.jpg",
       ],
       length: 65,
@@ -56,8 +55,6 @@ export const warehouseInfo = {
       images: [
         "/images/warehouse/surabaya-3/sby-3-1.jpg",
         "/images/warehouse/surabaya-3/sby-3-2.jpg",
-        "/images/warehouse/surabaya-3/sby-3-3.jpeg",
-        "/images/warehouse/surabaya-3/sby-3-4.jpeg",
       ],
       length: 56,
       width: 50,
@@ -88,7 +85,10 @@ export const warehouseInfo = {
       mapsUrl: "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
       // contactPerson: "Zaenal",
       // phone: "+62 817112257",
-      images: ["/images/warehouse/jakarta-2/wh-jakarta-branch-1.png"],
+      images: [
+        "/images/warehouse/surabaya-3/sby-3-3.jpeg",
+        "/images/warehouse/surabaya-3/sby-3-4.jpeg",
+      ],
       length: 30,
       width: 25,
     },
@@ -126,10 +126,7 @@ export const warehouseInfo = {
       address:
         "Jl. Padang Kartika VI No.4, Padangsambian Klod, Kec. Denpasar Bar., Kabupaten Badung, Bali 80117",
       mapsUrl: "https://maps.app.goo.gl/9eT6rDMjzY2M5vqA8",
-      images: [
-        "/images/warehouse/bali/wh-bali-1-1.png",
-        "/images/warehouse/bali/wh-bali-1-2.png",
-      ],
+      images: ["/images/warehouse/bali/wh-bali-1-1.png"],
       length: 65,
       width: 19,
     },
@@ -139,10 +136,7 @@ export const warehouseInfo = {
       address:
         "Jl Raya Sandik, Meninting Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351",
       mapsUrl: "https://maps.app.goo.gl/bLvq9Qq16cHXSioT7",
-      images: [
-        "/images/warehouse/mataram/wh-mataram-1-1.png",
-        "/images/warehouse/mataram/wh-mataram-1-2.png",
-      ],
+      images: ["/images/warehouse/mataram/wh-mataram-1-1.png"],
       length: 65,
       width: 19,
     },
