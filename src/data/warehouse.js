@@ -110,7 +110,7 @@ export const warehouseInfo = {
       city: "SEMARANG",
       address:
         "Ps. Hewan Mranggen, Dekat, Bandung, Bandungrejo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567",
-      mapsUrl: "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
+      mapsUrl: "https://maps.app.goo.gl/VRGF8N2P1j4KKQyT6?g_st=iw",
       images: [
         "/images/warehouse/semarang/wh-semarang-1-1.JPG",
         "/images/warehouse/semarang/wh-semarang-1-2.JPG",
