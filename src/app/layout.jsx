@@ -23,7 +23,7 @@ export const viewport = {
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PT Mikro Indo Sinergi Persada (MISP) – Telecommunication Engineering Indonesia",
+    default: "Mikro Indo Sinergi Persada (MISP) – Telecommunication Engineering Indonesia",
     template: "%s | MISP",
   },
 
@@ -87,7 +87,7 @@ export const metadata = {
     type: "website",
     url: siteUrl,
     siteName: "MISP",
-    title: "PT Mikro Indo Sinergi Persada (MISP)",
+    title: "Mikro Indo Sinergi Persada (MISP)",
     description:
       "MISP menyediakan solusi telecommunication engineering di Indonesia: survey, network rollout, FTTH, microwave link, warehousing, dan scrap management dengan kualitas ISO.",
     locale: "id_ID",
@@ -136,7 +136,7 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "PT Mikro Indo Sinergi Persada (MISP)",
+              name: "Mikro Indo Sinergi Persada (MISP)",
               url: siteUrl,
               logo: logo,
               image: ogImage,
