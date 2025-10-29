@@ -19,7 +19,8 @@ export const metadata = {
     default: "Mikro Indo Sinergi Persada",
     template: "%s | MISP",
   },
-  description: "Company Profile of Mikro Indo Sinergi Persada",
+  description:
+    "PT Mikro Indo Sinergi Persada (MISP) adalah perusahaan engineering telekomunikasi yang menyediakan layanan network rollout, FTTH, scrap management, dan warehousing di seluruh Indonesia.",
   alternates: {
     canonical: siteUrl,
   },
@@ -31,12 +32,42 @@ export const metadata = {
   applicationName: "MISP",
   generator: "Next.js 15",
   keywords: [
-    "telecommunication engineering",
-    "FTTH",
-    "network rollout",
-    "scrap management",
-    "warehousing",
-    "Indonesia",
+    // --- Brand & General ---
+    "MISP", "Mikro Indo Sinergi Persada", "PT Mikro Indo Sinergi Persada",
+    "engineering telekomunikasi", "telecommunication engineering",
+    "layanan telekomunikasi", "telecom services", "telecom company Indonesia",
+    "solusi telekomunikasi", "telecommunication solutions",
+
+    // --- Services ---
+    "rollout jaringan", "network rollout", "FTTH", "fiber to the home",
+    "survey jaringan", "network survey and planning", "optimasi jaringan",
+    "network optimization", "instalasi microwave link", "microwave link installation",
+    "relokasi RAN", "RAN relocation", "dismantle jaringan", "dismantle outdoorisation",
+    "upgrade kapasitas jaringan", "capacity upgrade", "turnkey telecom projects",
+
+    // --- Warehousing & Scrap ---
+    "warehousing telekomunikasi", "telecom warehousing", "logistik telekomunikasi",
+    "telecom logistics", "pergudangan industri", "industrial warehousing",
+    "scrap management", "manajemen scrap peralatan", "equipment scrap management",
+
+    // --- Locations ---
+    "warehouse Surabaya", "warehouse Jakarta", "warehouse Bandung",
+    "warehouse Semarang", "warehouse Bali", "warehouse Mataram",
+    "telecom warehouse Indonesia", "lokasi pergudangan telekomunikasi",
+
+    // --- Values / Certification ---
+    "ISO 9001", "ISO 14001", "ISO 45001", "ISO 37001",
+    "solusi end-to-end telekomunikasi", "telecommunication project management",
+    "engineering projects Indonesia", "layanan nasional telekomunikasi",
+
+    // --- Long-tail (bantu SEO alami) ---
+    "layanan rollout jaringan telekomunikasi Indonesia",
+    "solusi warehouse telekomunikasi Surabaya",
+    "dismantle outdoorisation tower telekomunikasi",
+    "manajemen scrap peralatan telekomunikasi operator",
+    "engineering jaringan microwave new link Indonesia",
+    "fiber optic network Indonesia",
+    "telecommunication engineering company in Indonesia"
   ],
   authors: [{ name: "MISP" }],
   openGraph: {
@@ -44,14 +75,15 @@ export const metadata = {
     url: siteUrl,
     siteName: "MISP",
     title: "Mikro Indo Sinergi Persada",
-    description: "Telecommunication Engineering & Industrial Solutions.",
+    description:
+      "Telecommunication Engineering & Industrial Solutions — network rollout, FTTH, warehousing, and scrap management across Indonesia.",
     images: ["/og.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "MISP – Telecommunication Engineering",
     description:
-      "Engineering telekomunikasi & warehousing di Indonesia.",
+      "Engineering telekomunikasi, FTTH, warehousing, dan scrap management di Indonesia.",
     images: ["/og.jpg"],
   },
   robots: {
