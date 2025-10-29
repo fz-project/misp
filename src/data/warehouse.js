@@ -136,7 +136,7 @@ export const warehouseInfo = {
       address:
         "Jl Raya Sandik, Meninting Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351",
       mapsUrl: "https://maps.app.goo.gl/bLvq9Qq16cHXSioT7",
-      images: ["/images/warehouse/mataram/wh-mataram-1-1.png"],
+      images: ["/images/warehouse/mataram/wh-mataram-1-1.jpeg"],
       length: 65,
       width: 19,
     },

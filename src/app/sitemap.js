@@ -1,13 +1,4 @@
-export default function sitemap() {
-  return [
-    {
-      url: 'https://misp.co.id',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ]
-}const base = "https://misp.co.id";
+const base = "https://misp.co.id";
 
 const staticRoutes = ["", "about", "services", "locations"].map(
   (p) => `/${p}`.replace("//", "/")
