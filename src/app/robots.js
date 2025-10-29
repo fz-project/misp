@@ -1,5 +1,6 @@
+// app/robots.js
 export default function robots() {
-  const base = "https://misp.co.id";
+  const base = "https://mikroindosinergipersada.com";
   return {
     rules: [
       {
@@ -9,6 +10,6 @@ export default function robots() {
       },
     ],
     sitemap: `${base}/sitemap.xml`,
-    host: base,
+    host: base, // opsional; beberapa crawler non-Google menggunakannya
   };
 }
