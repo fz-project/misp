@@ -110,7 +110,7 @@ export const warehouseInfo = {
       city: "SEMARANG",
       address:
         "Ps. Hewan Mranggen, Dekat, Bandung, Bandungrejo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567",
-      mapsUrl: "https://maps.app.goo.gl/NkrFVrBFBF5Ea1h57",
+      mapsUrl: "https://maps.app.goo.gl/VRGF8N2P1j4KKQyT6?g_st=iw",
       images: [
         "/images/warehouse/semarang/wh-semarang-1-1.JPG",
         "/images/warehouse/semarang/wh-semarang-1-2.JPG",
@@ -136,7 +136,7 @@ export const warehouseInfo = {
       address:
         "Jl Raya Sandik, Meninting Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351",
       mapsUrl: "https://maps.app.goo.gl/bLvq9Qq16cHXSioT7",
-      images: ["/images/warehouse/mataram/wh-mataram-1-1.png"],
+      images: ["/images/warehouse/mataram/wh-mataram-1-1.jpeg"],
       length: 65,
       width: 19,
     },
