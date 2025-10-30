@@ -34,16 +34,17 @@ export const metadata = {
 
   icons: {
     icon: [
-      { url: "/logo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/logo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" }, // <-- penting untuk Google mobile
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }, // opsional
     ],
-    apple: [{ url: "/logo/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     other: [
-      { rel: "mask-icon", url: "/logo/apple-touch-icon.png", color: "#0f172a" },
-      { rel: "shortcut icon", url: "/logo/favicon.ico", type: "image/x-icon" },
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#0f172a" }, // <-- SVG
+      { rel: "shortcut icon", url: "/favicon.ico", type: "image/x-icon" },
     ],
   },
-  manifest: "/logo/site.webmanifest",
+  manifest: "/site.webmanifest",
 
   applicationName: "MISP",
   generator: "Next.js 15",
