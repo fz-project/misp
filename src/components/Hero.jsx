@@ -55,7 +55,7 @@ const Hero = () => {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-md">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center max-w-4xl mx-auto">
               {dataCompany.stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -66,12 +66,12 @@ const Hero = () => {
                     delay: 0.4 + index * 0.1,
                     ease: "easeOut",
                   }}
-                  className="text-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="text-center p-4 sm:p-5 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-[160px]"
                 >
-                  <div className="text-xl md:text-2xl font-bold text-red-600">
+                  <div className="text-xl sm:text-2xl font-bold text-red-600">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm text-gray-600 mt-1">
+                  <div className="text-xs sm:text-sm text-gray-600 mt-1">
                     {stat.label}
                   </div>
                 </motion.div>
