@@ -194,7 +194,7 @@ const Fleet = () => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              prevImage();
+              // prevImage();
             }}
             className="absolute left-6 text-white hover:text-gray-300 z-10"
           >
@@ -216,7 +216,7 @@ const Fleet = () => {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              nextImage();
+              // nextImage();
             }}
             className="absolute right-6 text-white hover:text-gray-300 z-10"
           >

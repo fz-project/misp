@@ -19,7 +19,7 @@ import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
 export default function WarehouseSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState("office");
 
   // Filter data berdasarkan kategori
   const filteredLocations = warehouseInfo.locations.filter((location) => {
@@ -36,8 +36,10 @@ export default function WarehouseSection() {
   // Hitung jumlah per kategori
   const counts = {
     all: warehouseInfo.locations.length,
-    office: warehouseInfo.locations.filter((l) => l.type.includes("Office")).length,
-    warehouse: warehouseInfo.locations.filter((l) => l.type === "Warehouse").length,
+    office: warehouseInfo.locations.filter((l) => l.type.includes("Office"))
+      .length,
+    warehouse: warehouseInfo.locations.filter((l) => l.type === "Warehouse")
+      .length,
   };
 
   /** ✨ Variants animasi fade-up per card */
@@ -71,19 +73,8 @@ export default function WarehouseSection() {
         className="flex flex-wrap justify-center gap-4"
       >
         <button
-          onClick={() => setActiveFilter("all")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-            activeFilter === "all"
-              ? "bg-red-600 text-white shadow-lg"
-              : "bg-white text-gray-700 hover:bg-gray-100 shadow"
-          }`}
-        >
-          All Locations
-          <span className="ml-2 text-sm opacity-80">({counts.all})</span>
-        </button>
-        <button
           onClick={() => setActiveFilter("office")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:cursor-pointer ${
             activeFilter === "office"
               ? "bg-red-600 text-white shadow-lg"
               : "bg-white text-gray-700 hover:bg-gray-100 shadow"
@@ -94,7 +85,7 @@ export default function WarehouseSection() {
         </button>
         <button
           onClick={() => setActiveFilter("warehouse")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:cursor-pointer ${
             activeFilter === "warehouse"
               ? "bg-red-600 text-white shadow-lg"
               : "bg-white text-gray-700 hover:bg-gray-100 shadow"
@@ -103,18 +94,37 @@ export default function WarehouseSection() {
           Warehouses
           <span className="ml-2 text-sm opacity-80">({counts.warehouse})</span>
         </button>
+        <button
+          onClick={() => setActiveFilter("all")}
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:cursor-pointer ${
+            activeFilter === "all"
+              ? "bg-red-600 text-white shadow-lg"
+              : "bg-white text-gray-700 hover:bg-gray-100 shadow"
+          }`}
+        >
+          All Locations
+          <span className="ml-2 text-sm opacity-80">({counts.all})</span>
+        </button>
       </motion.div>
 
       {/* Cards Grid */}
       <motion.div
-        key={activeFilter} // Re-render animation saat filter berubah
+        key={activeFilter}
         variants={container}
         initial="hidden"
         animate="visible"
-        className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+        className={`gap-8 ${
+          activeFilter === "office"
+            ? "flex flex-wrap justify-center items-start"
+            : "grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
+        }`}
       >
         {filteredLocations.map((location, index) => (
-          <motion.div key={index} variants={fadeUp}>
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            className={activeFilter === "office" ? "max-w-md w-full" : ""}
+          >
             <WarehouseCard location={location} delayIndex={index} />
           </motion.div>
         ))}
