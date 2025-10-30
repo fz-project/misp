@@ -8,7 +8,7 @@ export const fleetData = [
         type: "Pick Up",
         capacity: "1–1.5 Ton",
         year: "2015–2020",
-        quantity: 3,
+        quantity: 6,
         image: "/images/fleet/Pick-Up.jpg",
         description: "Vehicle for transporting and delivering materials",
         specifications: [
@@ -24,7 +24,7 @@ export const fleetData = [
         type: "Pick Up Box",
         capacity: "800 Kg–1 Ton",
         year: "2018",
-        quantity: 1,
+        quantity: 2,
         image: "/images/fleet/Pickup-Box.jpg",
         description:
           "Vehicle for transporting and delivering materials including battery",
@@ -48,7 +48,7 @@ export const fleetData = [
         type: "Material Handling",
         capacity: "3.5 Ton",
         year: "2019",
-        quantity: 1,
+        quantity: 3,
         image: "/images/fleet/Forklift.jpg",
         description: "Material handling vehicle for warehouse operations",
         specifications: [
@@ -68,7 +68,7 @@ export const fleetData = [
         type: "Medium Truck",
         capacity: "6–7 Ton",
         year: "2010",
-        quantity: 1,
+        quantity: 3,
         image: "/images/fleet/Truck-Medium.jpg",
         description:
           "Vehicle for transporting and delivering materials to the site",

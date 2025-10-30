@@ -19,6 +19,27 @@ import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 
 export default function WarehouseSection() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  // Filter data berdasarkan kategori
+  const filteredLocations = warehouseInfo.locations.filter((location) => {
+    if (activeFilter === "all") return true;
+    if (activeFilter === "office") {
+      return location.type.includes("Office");
+    }
+    if (activeFilter === "warehouse") {
+      return location.type === "Warehouse";
+    }
+    return true;
+  });
+
+  // Hitung jumlah per kategori
+  const counts = {
+    all: warehouseInfo.locations.length,
+    office: warehouseInfo.locations.filter((l) => l.type.includes("Office")).length,
+    warehouse: warehouseInfo.locations.filter((l) => l.type === "Warehouse").length,
+  };
+
   /** ✨ Variants animasi fade-up per card */
   const container = {
     hidden: { opacity: 0 },
@@ -40,19 +61,76 @@ export default function WarehouseSection() {
   };
 
   return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8"
-    >
-      {warehouseInfo.locations.map((location, index) => (
-        <motion.div key={index} variants={fadeUp}>
-          <WarehouseCard location={location} delayIndex={index} />
+    <div className="space-y-8">
+      {/* Filter Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-wrap justify-center gap-4"
+      >
+        <button
+          onClick={() => setActiveFilter("all")}
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+            activeFilter === "all"
+              ? "bg-red-600 text-white shadow-lg"
+              : "bg-white text-gray-700 hover:bg-gray-100 shadow"
+          }`}
+        >
+          All Locations
+          <span className="ml-2 text-sm opacity-80">({counts.all})</span>
+        </button>
+        <button
+          onClick={() => setActiveFilter("office")}
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+            activeFilter === "office"
+              ? "bg-red-600 text-white shadow-lg"
+              : "bg-white text-gray-700 hover:bg-gray-100 shadow"
+          }`}
+        >
+          Offices
+          <span className="ml-2 text-sm opacity-80">({counts.office})</span>
+        </button>
+        <button
+          onClick={() => setActiveFilter("warehouse")}
+          className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+            activeFilter === "warehouse"
+              ? "bg-red-600 text-white shadow-lg"
+              : "bg-white text-gray-700 hover:bg-gray-100 shadow"
+          }`}
+        >
+          Warehouses
+          <span className="ml-2 text-sm opacity-80">({counts.warehouse})</span>
+        </button>
+      </motion.div>
+
+      {/* Cards Grid */}
+      <motion.div
+        key={activeFilter} // Re-render animation saat filter berubah
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8"
+      >
+        {filteredLocations.map((location, index) => (
+          <motion.div key={index} variants={fadeUp}>
+            <WarehouseCard location={location} delayIndex={index} />
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Empty State */}
+      {filteredLocations.length === 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-12"
+        >
+          <p className="text-gray-500 text-lg">No locations found</p>
         </motion.div>
-      ))}
-    </motion.div>
+      )}
+    </div>
   );
 }
 
@@ -217,31 +295,6 @@ const AutoScrollCarousel = React.memo(function AutoScrollCarousel({
   const [fade, setFade] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  /**
-   * 📴 Auto-scroll dinonaktifkan
-   * Kode lama di bawah ini dikomentari agar bisa diaktifkan lagi nanti.
-   */
-  // useEffect(() => {
-  //   if (images.length <= 1 || paused) return;
-
-  //   const initialDelay = 2000 * delayIndex;
-  //   let intervalId;
-  //   const startCarousel = () => {
-  //     intervalId = setInterval(() => {
-  //       setFade(false);
-  //       setTimeout(() => {
-  //         setCurrentIndex((prev) => (prev + 1) % images.length);
-  //         setFade(true);
-  //       }, 400);
-  //     }, 5000);
-  //   };
-  //   const startTimer = setTimeout(startCarousel, initialDelay);
-  //   return () => {
-  //     clearTimeout(startTimer);
-  //     clearInterval(intervalId);
-  //   };
-  // }, [images.length, delayIndex, paused]);
-
   /** 🔧 Manual control via button or dot */
   const goToSlide = (index) => {
     setFade(false);
@@ -273,7 +326,7 @@ const AutoScrollCarousel = React.memo(function AutoScrollCarousel({
               width={640}
               height={640}
               priority
-              onClick={() => setLightboxOpen(true)} // 🟢 Klik buka lightbox
+              onClick={() => setLightboxOpen(true)}
             />
           ))}
         </div>

@@ -31,6 +31,7 @@ const Services = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [selectedParent, setSelectedParent] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [activeSection, setActiveSection] = useState(null); // 'telco' or 'scrap'
 
   const iconMap = {
     Network: Network,
@@ -48,10 +49,14 @@ const Services = () => {
   const closeModal = () => {
     setSelectedProject(null);
     setLightboxIndex(null);
+    setActiveSection(null);
   };
 
   const openLightbox = (index) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+    setActiveSection(null);
+  };
 
   const nextImage = () => {
     if (selectedProject && lightboxIndex !== null) {
@@ -67,6 +72,26 @@ const Services = () => {
           selectedProject.images.length
       );
     }
+  };
+
+  // Handler untuk buka lightbox Telco
+  const openTelcoLightbox = (index) => {
+    const projectRollout = serviceInfo.services.telcoEngineering.items.find(
+      (item) => item.title === "Project Rollout"
+    );
+    setSelectedProject(projectRollout);
+    setActiveSection("telco");
+    setLightboxIndex(index);
+  };
+
+  // Handler untuk buka lightbox Scrap
+  const openScrapLightbox = (index) => {
+    const scrapDelivery = serviceInfo.services.scrapWarehousing.items.find(
+      (item) => item.title === "Scrap Delivery Services"
+    );
+    setSelectedProject(scrapDelivery);
+    setActiveSection("scrap");
+    setLightboxIndex(index);
   };
 
   return (
@@ -158,9 +183,6 @@ const Services = () => {
                     key={index}
                     variants={fadeUp}
                     whileHover={{ scale: 1.02 }}
-                    // onClick={() =>
-                    //   openModal(serviceInfo.services.telcoEngineering, index)
-                    // }
                     className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300"
                   >
                     <CheckCircle
@@ -177,12 +199,13 @@ const Services = () => {
           {/* Right Gallery */}
           <div className="grid grid-cols-2 gap-4">
             {serviceInfo.services.telcoEngineering.items
-              .find((item) => item.title === "Project Rollout") // cari item Rollout
+              .find((item) => item.title === "Project Rollout")
               ?.images.map((img, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.05 }}
                   className="relative h-56 rounded-xl overflow-hidden cursor-pointer shadow-lg"
+                  onClick={() => openTelcoLightbox(i)}
                 >
                   <Image
                     src={img}
@@ -212,9 +235,7 @@ const Services = () => {
                   key={i}
                   whileHover={{ scale: 1.05 }}
                   className="relative h-56 rounded-xl overflow-hidden cursor-pointer shadow-lg"
-                  // onClick={() =>
-                  //   openModal(serviceInfo.services.scrapWarehousing, i)
-                  // }
+                  onClick={() => openScrapLightbox(i)}
                 >
                   <Image
                     src={img}
@@ -242,9 +263,6 @@ const Services = () => {
                     key={index}
                     variants={fadeUp}
                     whileHover={{ scale: 1.02 }}
-                    // onClick={() =>
-                    //   openModal(serviceInfo.services.scrapWarehousing, index)
-                    // }
                     className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:shadow-md transition duration-300 cursor-pointer"
                   >
                     <CheckCircle

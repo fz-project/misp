@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Calendar, X } from "lucide-react";
+import { Calendar, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { fleetData, fleetStats } from "../data/fleet";
 import { motion } from "framer-motion";
 
 const Fleet = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(null);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -18,6 +19,35 @@ const Fleet = () => {
   };
 
   const allVehicles = fleetData.flatMap((c) => c.vehicles);
+  const allImages = allVehicles.map((v) => v.image);
+
+  const openLightbox = (image) => {
+    const index = allImages.indexOf(image);
+    setSelectedImage(image);
+    setCurrentImageIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    setCurrentImageIndex(null);
+  };
+
+  const nextImage = () => {
+    if (currentImageIndex !== null) {
+      const nextIndex = (currentImageIndex + 1) % allImages.length;
+      setCurrentImageIndex(nextIndex);
+      setSelectedImage(allImages[nextIndex]);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex !== null) {
+      const prevIndex =
+        (currentImageIndex - 1 + allImages.length) % allImages.length;
+      setCurrentImageIndex(prevIndex);
+      setSelectedImage(allImages[prevIndex]);
+    }
+  };
 
   return (
     <section
@@ -83,7 +113,7 @@ const Fleet = () => {
                 {/* Gambar */}
                 <div
                   className="relative w-full cursor-pointer"
-                  onClick={() => setSelectedImage(vehicle.image)}
+                  onClick={() => openLightbox(vehicle.image)}
                 >
                   <img
                     src={vehicle.image}
@@ -146,26 +176,53 @@ const Fleet = () => {
         </motion.div>
       </div>
 
-      {/* Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/70 flex justify-center items-center z-50"
-          onClick={() => setSelectedImage(null)}
+      {/* Lightbox - Design sama dengan Services */}
+      {selectedImage && currentImageIndex !== null && (
+        <motion.div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-[60]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeLightbox}
         >
-          <div className="relative max-w-4xl w-full px-4">
-            <button
-              className="absolute top-4 right-4 bg-white text-black rounded-full p-2 hover:bg-gray-200"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X size={20} />
-            </button>
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 text-white hover:text-gray-300 z-10"
+          >
+            <X size={32} />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}
+            className="absolute left-6 text-white hover:text-gray-300 z-10"
+          >
+            <ChevronLeft size={40} />
+          </button>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative w-full max-w-5xl h-[70vh] px-4"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={selectedImage}
-              alt="Preview"
-              className="w-full h-auto object-contain rounded-lg"
+              alt={`Vehicle ${currentImageIndex + 1}`}
+              className="w-full h-full object-contain rounded-lg"
             />
-          </div>
-        </div>
+          </motion.div>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}
+            className="absolute right-6 text-white hover:text-gray-300 z-10"
+          >
+            <ChevronRight size={40} />
+          </button>
+        </motion.div>
       )}
     </section>
   );
