@@ -16,8 +16,8 @@ export const serviceInfo = {
             "/images/service/telco/telco4.jpeg",
             "/images/service/telco/telco5.jpeg",
             "/images/service/telco/telco6.jpeg",
+            "/images/service/telco/pln.png",
             "/images/service/telco/telco7.jpeg",
-            "/images/service/telco/pln.jpeg",
           ],
         },
         {
@@ -107,23 +107,7 @@ export const serviceInfo = {
           ],
         },
         {
-          title: "PLN - Power Transmission Tower Capacity Upgrade",
-          description:
-            "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
-          images: [
-            "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
-          ],
-        },
-        {
-          title: "PLN - New Tower Installation",
-          description:
-            "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
-          images: [
-            "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
-          ],
-        },
-        {
-          title: "PLN - Full Tower Dismantling",
+          title: "PLN - Power Transmission Tower Capacity Upgrade, New Tower Installation and Full Tower Dismantling",
           description:
             "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
           images: [
