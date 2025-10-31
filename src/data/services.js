@@ -10,10 +10,7 @@ export const serviceInfo = {
           description:
             "Implementasi project rollout telekomunikasi skala besar.",
           images: [
-            "/images/service/telco/team.jpeg",
-            "/images/service/telco/telco1.jpeg",
-            "/images/service/telco/telco2.jpeg",
-            "/images/service/telco/telco3.jpeg",
+            "/images/service/telco/pln.jpeg",
             "/images/service/telco/telco4.jpeg",
             "/images/service/telco/telco5.jpeg",
             "/images/service/telco/telco6.jpeg",
@@ -76,7 +73,7 @@ export const serviceInfo = {
           ],
         },
         {
-          title: "Mini CME - Power and TE Installation",
+          title: "Mini CME - Erection Tower, Power and TE Installation",
           description:
             "Instalasi mini CME untuk sistem power dan telecommunication equipment.",
           images: [
@@ -100,6 +97,30 @@ export const serviceInfo = {
         },
         {
           title: "Wireless (Data Center) Dismantle",
+          description:
+            "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
+          images: [
+            "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
+          ],
+        },
+        {
+          title: "PLN - Power Transmission Tower Capacity Upgrade",
+          description:
+            "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
+          images: [
+            "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
+          ],
+        },
+        {
+          title: "PLN - New Tower Installation",
+          description:
+            "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
+          images: [
+            "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop",
+          ],
+        },
+        {
+          title: "PLN - Full Tower Dismantling",
           description:
             "Pembongkaran sistem wireless di data center untuk migrasi atau upgrade.",
           images: [
