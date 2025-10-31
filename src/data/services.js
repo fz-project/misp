@@ -10,11 +10,14 @@ export const serviceInfo = {
           description:
             "Implementasi project rollout telekomunikasi skala besar.",
           images: [
-            "/images/service/telco/pln.jpeg",
+            "/images/service/telco/team.jpeg",
+            "/images/service/telco/telco2.jpeg",
+            "/images/service/telco/telco3.jpeg",
             "/images/service/telco/telco4.jpeg",
             "/images/service/telco/telco5.jpeg",
             "/images/service/telco/telco6.jpeg",
             "/images/service/telco/telco7.jpeg",
+            "/images/service/telco/pln.jpeg",
           ],
         },
         {
